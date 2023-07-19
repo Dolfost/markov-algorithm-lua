@@ -17,8 +17,10 @@ badd +1 markov.lua
 badd +1 markovlib.lua
 badd +0 term://~/markov-algorithm-lua//3885:/bin/zsh
 badd +2 .gitignore
+badd +0 .gitattributes
 argglobal
 %argdel
+tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
@@ -81,6 +83,26 @@ keepjumps exe s:l
 normal! zt
 keepjumps 10059
 normal! 023|
+tabnext
+edit .gitattributes
+argglobal
+balt term://~/markov-algorithm-lua//3885:/bin/zsh
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 029|
 tabnext 3
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
