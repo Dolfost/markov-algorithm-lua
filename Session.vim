@@ -13,15 +13,17 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +0 markov.lua
-badd +0 markovlib.lua
+badd +1 markov.lua
+badd +1 markovlib.lua
+badd +0 term://~/markov-algorithm-lua//3885:/bin/zsh
+badd +2 .gitignore
 argglobal
 %argdel
+tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit markov.lua
 argglobal
-balt markov.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -32,12 +34,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 29) / 59)
+let s:l = 57 - ((56 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 05|
+keepjumps 57
+normal! 017|
 tabnext
 edit markovlib.lua
 argglobal
@@ -52,13 +54,34 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 40 - ((39 * winheight(0) + 32) / 64)
+let s:l = 3 - ((2 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 40
-normal! 09|
-tabnext 2
+keepjumps 3
+normal! 0
+tabnext
+argglobal
+if bufexists(fnamemodify("term://~/markov-algorithm-lua//3885:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//3885:/bin/zsh | else | edit term://~/markov-algorithm-lua//3885:/bin/zsh | endif
+if &buftype ==# 'terminal'
+  silent file term://~/markov-algorithm-lua//3885:/bin/zsh
+endif
+balt markovlib.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+let s:l = 10059 - ((58 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 10059
+normal! 023|
+tabnext 3
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -71,7 +94,6 @@ if filereadable(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
 set hlsearch
-nohlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
