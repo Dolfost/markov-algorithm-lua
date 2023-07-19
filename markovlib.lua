@@ -1,48 +1,57 @@
 local markov = {}
 
---[[
--- 2^aa...a-3^aa...a
-replacements = {
-	{["2^a"] = "aa*2^"},
-	{["*2^"] = ""},
-	{["3^a"] = "aaa*3^",
-	{["*3^"] = "",
-	
-	{["Ba"] = "aB"},
-	{["Aa"] = "aBA"},
-	{["A"]  = ""},
-	{["a*"] = "*A"},
-	{["*a"] = "*"},
-	{["*"] = ""},
-	{["B"] = "a"},
-
-	{["a-a"] = "-"},
-	{["a-"] = "a", end = true},
-	{["-a"] = "-a", end = true}
---]]
+local function escape(text)
+    return text:gsub("(%W)", "%%%1")
+end
 
 local function markovkey(t) -- t is a replacements table
 	return function (t, i)
 		i = i + 1
-		idx, val = next(t[i])
-		if idx == "end" then
-			idx, val = next(t[i], "end")
+
+		if t[i] == nil then return nil end
+
+		key = next(t[i])
+
+		if key == "terminating" then
+			key = next(t[i], "terminating")
 		end
-		return idx, val, tab
+
+		if key == nil then
+			return nil
+		end
+
+		if t[i]["terminating"] == true then
+			return i, key, true
+		end
+
+		return i, key, false
 	end, t, 0
 end
 
 function markov.iterate(string, replacements)
 	local key = ""
 	local tab = 0
-	local finish = false
+	local term = true
 
-	for key, repl, tab in markovkey(replacements) do
-		string, n = string.gsub(stiring, key, repl, 1)
-		if n == 1 then break end
+	local subs = false
+
+	for t, k, tm in markovkey(replacements) do
+		string, n = string.gsub(string, escape(k), replacements[t][k], 1)
+		
+		if n == 1 then
+			subs = true
+			key = k
+			tab = t
+			term = tm
+			break
+		end
 	end
 
-	return string, tab, key
+	if subs == false then
+		return string
+	end
+
+	return string, tab, key, term
 end
 
 return markov
