@@ -35,8 +35,9 @@ parser:group "Flags"
 	parser:mutex(
 		parser:flag "-v --verbose"
 			:target "verbosity"
-			:count "0-2",
+			:action "store_true",
 		parser:flag "-q --quiet"
+			:action "store_true"
 	)
 
 
