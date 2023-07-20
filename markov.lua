@@ -1,11 +1,27 @@
 ver = "v1.0"
 
-local m = require "./markovlib"
-local chains = require "./chains"
+local replacements = {}
+function malgorithm(table)
+	
+	if table.name == nil then error("Could not find the name of algorithm in it's table.\n") end
 
+	replacements[table.name] = table
+	replacements[table.name].name = nil
+
+end
+
+local m = require "./markovlib"
 local args = require "./options"
 
-replacements = chains.mult
+
+for _, file in ipairs(args.files) do
+	dofile(file)
+end
+
+if replacements[args.algorithm] == nil then
+	io.stderr:write(string.format("Could not find '%s' algorithm.\n", args.algorithm))
+	os.exit(1)
+end
 
 
 if args.verbosity == true then
@@ -18,7 +34,7 @@ if args.verbosity == true then
 			counter = counter + 1
 			io.write(string.format("%-3d ", counter))
 
-			str, tab, key, term = m.iterate(str, replacements)
+			str, tab, key, term = m.iterate(str, replacements[args.algorithm])
 			
 			if tab == nil then
 				io.write("No substitutions can be done.\n")
@@ -27,7 +43,7 @@ if args.verbosity == true then
 				io.write("The terminating substitution was done.\n")
 				break
 			else
-				io.write(string.format("%s --> %s\n", key, replacements[tab][key]))
+				io.write(string.format("%s --> %s\n", key, replacements[args.algorithm][tab][key]))
 			end
 
 			io.write(string.format(">> %s\n", str))
@@ -39,11 +55,10 @@ if args.verbosity == true then
 else
 	for _, str in ipairs(args.str) do
 		while true do
-			str, tab, key, term = m.iterate(str, replacements)
+			str, tab, key, term = m.iterate(str, replacements[args.algorithm])
 			if tab == nil or term == true then break end
 		end
 
 		io.write(string.format("%s\n", str))
 	end
 end
-

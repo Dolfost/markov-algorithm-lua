@@ -1,6 +1,5 @@
-local chains = {}
-
-chains.mult = { -- takes "aaa*aa" and returns "aaaaaa"
+malgorithm{ -- takes "aaa*aa" and returns "aaaaaa" (unary)
+	name = "mult",
 	{["Ba"] = "aB"},
 	{["Aa"] = "aBA"},
 	{["A"]  = ""},
@@ -10,7 +9,8 @@ chains.mult = { -- takes "aaa*aa" and returns "aaaaaa"
 	{["B"] = "a"},
 }
 
-chains.gcd = { -- takes "aaaa|aa" and returns gcd(aaaa, aa) (unary)
+malgorithm{ -- takes "aaaa|aa" and returns gcd(aaaa, aa) (unary)
+	name = "gcd",
 	{["aA"] = "Aa"},
 	{["a|a"] = "A|"},
 	{["a|"] = "|B"},
@@ -20,10 +20,9 @@ chains.gcd = { -- takes "aaaa|aa" and returns gcd(aaaa, aa) (unary)
 	{["|"] = ""}
 }
 
-chains.diff = { -- takes "aaa-aa" and returns "a"
+malgorithm{ -- takes "aaa-aa" and returns "a" (unary)
+	name = "diff",
 	{["a-a"] = "-"},
 	{["a-"] = "a", terminating = true},
 	{["-a"] = "-a", terminating = true}
 }
-
-return chains
