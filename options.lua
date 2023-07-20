@@ -19,7 +19,7 @@ parser:option "-f --file"
 		f, msg = io.open(filename)
 
 		if f == nil then
-			io.stderr:write(msg)
+			io.stderr:write(msg, "\n")
 			os.exit(1)
 		end
 
