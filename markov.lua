@@ -37,10 +37,10 @@ if args.verbosity == true then
 			str, tab, key, term = m.iterate(str, replacements[args.algorithm])
 			
 			if tab == nil then
-				io.write("No substitutions can be done.\n")
+				io.write("No more substitutions can be done.\n")
 				break
 			elseif term == true then
-				io.write("The terminating substitution was done.\n")
+				io.write("The terminating substitution were done.\n")
 				break
 			else
 				io.write(string.format("%s --> %s\n", key, replacements[args.algorithm][tab][key]))
