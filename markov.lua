@@ -47,16 +47,20 @@ if args.verbosity == true then
 			end
 
 			io.write(string.format(">> %s\n", str))
-			-- if counter >= 40 then break end
+			if counter >= args.iterations then break end
 		end
 
 		io.write(string.format("=== %s\n", str))
 	end
 else
 	for _, str in ipairs(args.str) do
+		local counter = 0
+
 		while true do
 			str, tab, key, term = m.iterate(str, replacements[args.algorithm])
 			if tab == nil or term == true then break end
+
+			if counter >= args.iterations then break end
 		end
 
 		io.write(string.format("%s\n", str))

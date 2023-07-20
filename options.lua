@@ -42,6 +42,15 @@ parser:group "Options"
 		:args(1)
 		:count(1)
 		:overwrite(false)
+
+	parser:option "-i --iterations"
+		:argname "INT"
+		:description "The max iterations count"
+		:args(1)
+		:count("?")
+		:convert(tonumber)
+		:overwrite(false)
+		:default(math.huge)
 	
 
 parser:group "Flags"
