@@ -1,35 +1,14 @@
-m = require "./markovlib"
+ver = "v1.0"
 
-local mult = { -- takes "aaa*aa" and returns "aaaaaa"
-	{["Ba"] = "aB"},
-	{["Aa"] = "aBA"},
-	{["A"]  = ""},
-	{["a*"] = "*A"},
-	{["*a"] = "*"},
-	{["*"] = ""},
-	{["B"] = "a"},
-}
+local m = require "./markovlib"
 
-local gcd = { -- takes "aaaa|aa" and returns gcd(aaaa, aa) (unary)
-	{["aA"] = "Aa"},
-	{["a|a"] = "A|"},
-	{["a|"] = "|B"},
-	{["B"] = "a"},
-	{["A"] = "C"},
-	{["C"] = "a"},
-	{["|"] = ""}
-}
+local chains = require "./chains"
 
-local diff = { -- takes "aaa-aa" and returns "a"
-	{["a-a"] = "-"},
-	{["a-"] = "a", terminating = true},
-	{["-a"] = "-a", terminating = true}
-}
-
+local args = require "./options"
 
 
 local str = "aaa*aa"
-replacements = mult
+replacements = chains.mult
 
 local counter = 0
 io.write(string.format("$ %s\n", str))
