@@ -18,8 +18,8 @@ badd +1 markovlib.lua
 badd +1 term://~/markov-algorithm-lua//3885:/bin/zsh
 badd +1 chains.lua
 badd +1 options.lua
-badd +0 sort.lua
-badd +0 README.md
+badd +1 sort.lua
+badd +1 README.md
 argglobal
 %argdel
 tabnew +setlocal\ bufhidden=wipe
@@ -41,12 +41,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 29) / 59)
+let s:l = 40 - ((39 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 011|
+keepjumps 40
+normal! 034|
 tabnext
 edit options.lua
 argglobal
@@ -80,12 +80,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 57 - ((56 * winheight(0) + 29) / 59)
+let s:l = 4 - ((3 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 57
-normal! 013|
+keepjumps 4
+normal! 032|
 tabnext
 argglobal
 if bufexists(fnamemodify("term://~/markov-algorithm-lua//3885:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//3885:/bin/zsh | else | edit term://~/markov-algorithm-lua//3885:/bin/zsh | endif
@@ -106,7 +106,7 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 10059
-normal! 021|
+normal! 023|
 tabnext
 edit chains.lua
 argglobal
@@ -121,11 +121,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 23 - ((22 * winheight(0) + 29) / 59)
+let s:l = 66 - ((42 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 23
+keepjumps 66
 normal! 0
 tabnext
 edit sort.lua
@@ -141,11 +141,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 21 - ((20 * winheight(0) + 29) / 59)
+let s:l = 1 - ((0 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 21
+keepjumps 1
 normal! 017|
 tabnext
 edit README.md
@@ -166,8 +166,8 @@ if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 15
-normal! 022|
-tabnext 4
+normal! 021|
+tabnext 5
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -179,6 +179,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+set hlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
