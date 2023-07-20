@@ -33,10 +33,10 @@ malgorithm{ -- takes "aaa-aa" and returns "a" (unary)
 	{["-a"] = "-a", terminating = true}
 }
 ```
-To make Your Markov algorithm to be able to run in this program you need
+To make Your Markov algorithm to be able to run in this program You need
 * Create new `.lua` file or edit existing [`sorting.lua`][sorting] or [`chains.lua`][chains]
 * Make [Lua table][luatable] and fill its fields with:
-    - `name` field. This is used to adress you Markov algorithm with `-a` option
+    - `name` field. This is used to adress You Markov algorithm with `-a` option
     - Other tables in format `{[string] = "replacement"}`
     - `terminating` field set to `true`. This is not necessary if Your algorithm designed to have no possible substitutions at the end. If so, then program ends.
 * Pass this table to `malgorithm` function. 
