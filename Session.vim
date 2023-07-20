@@ -15,11 +15,13 @@ else
 endif
 badd +1 markov.lua
 badd +1 markovlib.lua
-badd +0 term://~/markov-algorithm-lua//3885:/bin/zsh
-badd +2 .gitignore
-badd +0 .gitattributes
+badd +1 term://~/markov-algorithm-lua//3885:/bin/zsh
+badd +0 chains.lua
+badd +0 options.lua
 argglobal
 %argdel
+tabnew +setlocal\ bufhidden=wipe
+tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabnew +setlocal\ bufhidden=wipe
 tabrewind
@@ -35,12 +37,32 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 11 - ((10 * winheight(0) + 29) / 59)
+let s:l = 1 - ((0 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 11
-normal! 0
+keepjumps 1
+normal! 012|
+tabnext
+edit options.lua
+argglobal
+balt markov.lua
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 50 - ((47 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 50
+normal! 018|
 tabnext
 edit markovlib.lua
 argglobal
@@ -55,12 +77,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 3 - ((2 * winheight(0) + 29) / 59)
+let s:l = 36 - ((35 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 3
-normal! 0
+keepjumps 36
+normal! 010|
 tabnext
 argglobal
 if bufexists(fnamemodify("term://~/markov-algorithm-lua//3885:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//3885:/bin/zsh | else | edit term://~/markov-algorithm-lua//3885:/bin/zsh | endif
@@ -76,12 +98,32 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 10059 - ((58 * winheight(0) + 29) / 59)
+let s:l = 1222 - ((58 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10059
+keepjumps 1222
 normal! 023|
+tabnext
+edit chains.lua
+argglobal
+balt term://~/markov-algorithm-lua//3885:/bin/zsh
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 1 - ((0 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 1
+normal! 0
 tabnext 2
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
