@@ -3,7 +3,7 @@ local argparse = require "argparse"
 local parser = argparse()
 	:name "Markov algorithms"
 	:description "This program runs Lua Markov algorithms"
-	:epilog "Epilog."
+	:epilog "You can find the Lua Markov algorithms examples in chains.lua and sorting.lua."
 	:help_max_width(80)
 	:usage_max_width(70)
 	:help_vertical_space(1)
@@ -52,18 +52,21 @@ parser:option "-i --iterations"
 	:default(math.huge)
 	
 
-parser:flag "-v --version"
+parser:flag "--version"
 	:action(function ()
-		io.write(string.format("Markov Algorithm program %s.\n", ver))
+		io.write(string.format("Markov Algorithm program %s\n", ver))
 		os.exit(0)
 	end)
+	:description "Print version and exit"
 
 parser:mutex(
 	parser:flag "-v --verbose"
 		:target "verbosity"
-		:action "store_true",
+		:action "store_true"
+		:description "Verbose mode",
 	parser:flag "-q --quiet"
 		:action "store_true"
+		:description "Quiet mode"
 )
 
 
