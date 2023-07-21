@@ -69,22 +69,23 @@ $ lua markov.lua <options>
 
  to get movin on.
 
-
 ![Help](images/help.png)
-
 
 ## Contributing
 If You have any problems running markov-algorithms-lua, You are welcome at the [issues tab][issue].
 
+
+
 [issue]: https://github.com/Dolfost/markov-algorithm-lua/issues
 [malorithms]: https://en.wikipedia.org/wiki/Markov_algorithm
-[lua]: https://www.lua.org
-[bibtex]: https://en.wikipedia.org/wiki/BibTeX
-[luarocks]: https://luarocks.org
-[argparse]: https://luarocks.org/modules/argparse/argparse
-[brew]: https://brew.sh
 
 [sorting]:https://github.com/Dolfost/markov-algorithm-lua/blob/main/sorting.lua
 [chains]: https://github.com/Dolfost/markov-algorithm-lua/blob/main/chains.lua
 
+[lua]: https://www.lua.org
+[argparse]: https://luarocks.org/modules/argparse/argparse
+[luarocks]: https://luarocks.org
+
+[bibtex]: https://en.wikipedia.org/wiki/BibTeX
+[brew]: https://brew.sh
 [luatable]: https://www.lua.org/pil/2.5.html
