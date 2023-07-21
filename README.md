@@ -33,6 +33,7 @@ malgorithm{ -- takes "aaa-aa" and returns "a" (unary)
 	{["-a"] = "-a", terminating = true}
 }
 ```
+---
 To make Your Markov algorithm to be able to run in this program You need
 * Create new `.lua` file or edit existing [`sorting.lua`][sorting] or [`chains.lua`][chains]
 * Make [Lua table][luatable] and fill its fields with:
