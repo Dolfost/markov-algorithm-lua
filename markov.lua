@@ -5,6 +5,13 @@ function malgorithm(table)
 	
 	if table.name == nil then error("Could not find the name of algorithm in it's table.\n") end
 
+	if replacements[table.name] ~= nil then
+		io.stderr:write(string.format([[
+			Warning: %s algorithm is being read more then once.
+			It will be owerwritten with last read %s algorithm.
+			]], table.name, table.name))
+	end
+
 	replacements[table.name] = table
 	replacements[table.name].name = nil
 
