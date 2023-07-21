@@ -44,7 +44,10 @@ To make Your Markov algorithm to be able to run in this program You need
 * Volia!
 
 ## How to install
-Application relies on [`Lua v5.3`][lua] and newer, [`argparse v0.7.1`][argparse] and newer, [`luarocks`][luarocks].  
+Application relies on
+- [x] [`Lua v5.3`][lua] and newer
+- [x] [`argparse v0.7.1`][argparse] and newer
+- [ ] [`luarocks`][luarocks] (optional)
 
 Example installation with [`homebrew`][brew]:
 ```shell-session
