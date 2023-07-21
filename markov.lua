@@ -1,4 +1,4 @@
-ver = "v1.5"
+ver = "v1.6"
 
 local replacements = {}
 function malgorithm(table)
