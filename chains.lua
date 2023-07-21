@@ -29,8 +29,7 @@ malgorithm{ -- takes "aaa-aa" and returns "a" (unary difference)
 
 malgorithm{ -- takes "aaa+aa" and returns "aaaaa" (unary addition)
 	name = "sum",
-	{["a+a"] = "+aa"},
-	{["+"] = ""}
+	{["a+a"] = "aa"},
 }
 
 malgorithm{ -- takes "a" and never halts
@@ -45,7 +44,7 @@ malgorithm{ -- converts "0101" to "aaaaa" (binary to unary conversion)
 	{["0"] = ""}
 }
 
-malgorithm{ -- converts "0111*11" to "0111111" (unary like with first zero)
+malgorithm{ -- converts "0111*011" to "0111111" (unary like with first zero)
 	name = "mult2",
 	{["^1"] = "1#^"},
 	{["^"] = ""},
@@ -65,6 +64,36 @@ malgorithm{ -- doubles string "aaa" to "aaaaaa"
 	{["a"] = "*a"}
 }
 
+malgorithm{ -- takes "aaaaa/aa" and returns "aaRa" (unary division with remainder)
+	name = "div",
+	{["*A"] = "Pc*"}, -- 4
+	{["cP"] = "Pc"}, -- 5
+
+	{["*"] = ""}, -- 6
+
+	{["cc"] = "c"}, -- 7
+	{["c"] = "x"}, -- 8
+
+	{["P"] = "a"}, -- 9
+
+	{["Aa"] = "aA"}, -- 2
+	{["a/a"] = "/A"}, -- 1
+
+	{["/aA"] = "/ar"}, -- 10 
+	{["rA"] = "Ar"}, -- 11
+	{["/a"] = "/"}, -- 12
+
+	{["A"] = "*A"}, -- 3
+
+	{["rx"] = "xr"}, -- 13
+	{["xr"] = "xRr"}, -- 14
+	{["/r"] = "Rr"}, -- 15
+
+	{["/"] = ""}, --18
+
+	{["r"] = "a"}, -- 17
+	{["x"] = "a"}, -- 18
+}
 
 
 --[[
