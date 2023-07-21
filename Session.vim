@@ -19,7 +19,7 @@ badd +1 term://~/markov-algorithm-lua//3885:/bin/zsh
 badd +1 chains.lua
 badd +1 options.lua
 badd +1 sort.lua
-badd +1 README.md
+badd +42 README.md
 argglobal
 %argdel
 tabnew +setlocal\ bufhidden=wipe
@@ -41,12 +41,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 40 - ((39 * winheight(0) + 29) / 59)
+let s:l = 13 - ((12 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 40
-normal! 034|
+keepjumps 13
+normal! 0
 tabnext
 edit options.lua
 argglobal
@@ -121,11 +121,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 66 - ((42 * winheight(0) + 29) / 59)
+let s:l = 77 - ((17 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 66
+keepjumps 77
 normal! 0
 tabnext
 edit sort.lua
@@ -150,7 +150,6 @@ normal! 017|
 tabnext
 edit README.md
 argglobal
-balt markovlib.lua
 setlocal fdm=expr
 setlocal fde=Foldexpr_markdown(v:lnum)
 setlocal fmr={{{,}}}
@@ -161,13 +160,13 @@ setlocal fdn=20
 setlocal fen
 2
 normal! zo
-let s:l = 15 - ((14 * winheight(0) + 29) / 59)
+let s:l = 69 - ((29 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 15
-normal! 021|
-tabnext 5
+keepjumps 69
+normal! 04|
+tabnext 4
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
@@ -179,7 +178,6 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
-set hlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
