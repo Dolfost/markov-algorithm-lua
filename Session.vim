@@ -15,11 +15,12 @@ else
 endif
 badd +1 markov.lua
 badd +1 markovlib.lua
-badd +1 term://~/markov-algorithm-lua//3885:/bin/zsh
+badd +48 term://~/markov-algorithm-lua//3885:/bin/zsh
 badd +1 chains.lua
 badd +1 options.lua
 badd +1 sort.lua
 badd +42 README.md
+badd +1 -S
 argglobal
 %argdel
 tabnew +setlocal\ bufhidden=wipe
@@ -87,12 +88,31 @@ normal! zt
 keepjumps 4
 normal! 032|
 tabnext
+edit chains.lua
+argglobal
+balt term://~/markov-algorithm-lua//3885:/bin/zsh
+setlocal fdm=manual
+setlocal fde=0
+setlocal fmr={{{,}}}
+setlocal fdi=#
+setlocal fdl=0
+setlocal fml=1
+setlocal fdn=20
+setlocal fen
+silent! normal! zE
+let &fdl = &fdl
+let s:l = 77 - ((29 * winheight(0) + 29) / 59)
+if s:l < 1 | let s:l = 1 | endif
+keepjumps exe s:l
+normal! zt
+keepjumps 77
+normal! 023|
+tabnext
 argglobal
 if bufexists(fnamemodify("term://~/markov-algorithm-lua//3885:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//3885:/bin/zsh | else | edit term://~/markov-algorithm-lua//3885:/bin/zsh | endif
 if &buftype ==# 'terminal'
   silent file term://~/markov-algorithm-lua//3885:/bin/zsh
 endif
-balt markovlib.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -107,26 +127,6 @@ keepjumps exe s:l
 normal! zt
 keepjumps 10059
 normal! 023|
-tabnext
-edit chains.lua
-argglobal
-balt term://~/markov-algorithm-lua//3885:/bin/zsh
-setlocal fdm=manual
-setlocal fde=0
-setlocal fmr={{{,}}}
-setlocal fdi=#
-setlocal fdl=0
-setlocal fml=1
-setlocal fdn=20
-setlocal fen
-silent! normal! zE
-let &fdl = &fdl
-let s:l = 77 - ((17 * winheight(0) + 29) / 59)
-if s:l < 1 | let s:l = 1 | endif
-keepjumps exe s:l
-normal! zt
-keepjumps 77
-normal! 0
 tabnext
 edit sort.lua
 argglobal
@@ -178,6 +178,7 @@ if filereadable(s:sx)
   exe "source " . fnameescape(s:sx)
 endif
 let &g:so = s:so_save | let &g:siso = s:siso_save
+set hlsearch
 let g:this_session = v:this_session
 let g:this_obsession = v:this_session
 doautoall SessionLoadPost
