@@ -84,7 +84,7 @@ malgorithm{ -- takes "aaaaa/aa" and returns "aaRa" (unary division with remainde
 	{["xr"] = "xRr"}, -- 14
 	{["/r"] = "Rr"}, -- 15
 
-	{["/"] = ""}, --16
+	{["/"] = ""}, -- 16
 
 	{["r"] = "a"}, -- 17
 	{["x"] = "a"}, -- 18
