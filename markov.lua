@@ -47,17 +47,20 @@ if args.verbosity == true then
 				io.write("No more substitutions can be done.\n")
 				break
 			elseif term == true then
-				io.write("The terminating substitution were done.\n")
+				io.write(string.format("%s -->• %s\n", key, replacements[args.algorithm][tab][key]))
 				break
 			else
 				io.write(string.format("%s --> %s\n", key, replacements[args.algorithm][tab][key]))
 			end
 
 			io.write(string.format(">> %s\n", str))
-			if counter >= args.iterations then break end
+			if counter >= args.iterations then
+				io.write(string.format("The iteration limit of %d has been reached.\n", args.iterations))
+				break
+			end
 		end
 
-		io.write(string.format("=== %s\n", str))
+		io.write(string.format("=== %s\n\n", str))
 	end
 else
 	for _, str in ipairs(args.str) do
