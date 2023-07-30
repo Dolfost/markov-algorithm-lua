@@ -42,12 +42,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 13 - ((12 * winheight(0) + 29) / 59)
+let s:l = 58 - ((40 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 13
-normal! 0
+keepjumps 58
+normal! 065|
 tabnext
 edit options.lua
 argglobal
@@ -81,12 +81,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 4 - ((3 * winheight(0) + 29) / 59)
+let s:l = 41 - ((40 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 4
-normal! 032|
+keepjumps 41
+normal! 013|
 tabnext
 edit chains.lua
 argglobal
@@ -101,7 +101,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 77 - ((29 * winheight(0) + 29) / 59)
+let s:l = 77 - ((32 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -121,11 +121,11 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 10059 - ((58 * winheight(0) + 29) / 59)
+let s:l = 459 - ((58 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 10059
+keepjumps 459
 normal! 023|
 tabnext
 edit sort.lua
@@ -160,13 +160,13 @@ setlocal fdn=20
 setlocal fen
 2
 normal! zo
-let s:l = 69 - ((29 * winheight(0) + 29) / 59)
+let s:l = 69 - ((32 * winheight(0) + 29) / 59)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 69
-normal! 04|
-tabnext 4
+normal! 0
+tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
