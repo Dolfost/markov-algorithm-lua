@@ -13,14 +13,14 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +1 markov.lua
+badd +39 markov.lua
 badd +1 markovlib.lua
-badd +48 term://~/markov-algorithm-lua//3885:/bin/zsh
 badd +1 chains.lua
-badd +1 options.lua
+badd +64 options.lua
 badd +1 sort.lua
 badd +42 README.md
 badd +1 -S
+badd +0 term://~/markov-algorithm-lua//13629:/bin/zsh
 argglobal
 %argdel
 tabnew +setlocal\ bufhidden=wipe
@@ -32,6 +32,7 @@ tabnew +setlocal\ bufhidden=wipe
 tabrewind
 edit markov.lua
 argglobal
+balt -S
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -42,12 +43,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 58 - ((40 * winheight(0) + 29) / 59)
+let s:l = 94 - ((67 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 58
-normal! 065|
+keepjumps 94
+normal! 0
 tabnext
 edit options.lua
 argglobal
@@ -61,12 +62,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 6 - ((5 * winheight(0) + 29) / 59)
+let s:l = 33 - ((27 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 6
-normal! 090|
+keepjumps 33
+normal! 0164|
 tabnext
 edit markovlib.lua
 argglobal
@@ -81,7 +82,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 41 - ((40 * winheight(0) + 29) / 59)
+let s:l = 41 - ((40 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -90,7 +91,6 @@ normal! 013|
 tabnext
 edit chains.lua
 argglobal
-balt term://~/markov-algorithm-lua//3885:/bin/zsh
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -101,18 +101,19 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 77 - ((32 * winheight(0) + 29) / 59)
+let s:l = 1 - ((0 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 77
+keepjumps 1
 normal! 023|
 tabnext
 argglobal
-if bufexists(fnamemodify("term://~/markov-algorithm-lua//3885:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//3885:/bin/zsh | else | edit term://~/markov-algorithm-lua//3885:/bin/zsh | endif
+if bufexists(fnamemodify("term://~/markov-algorithm-lua//13629:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//13629:/bin/zsh | else | edit term://~/markov-algorithm-lua//13629:/bin/zsh | endif
 if &buftype ==# 'terminal'
-  silent file term://~/markov-algorithm-lua//3885:/bin/zsh
+  silent file term://~/markov-algorithm-lua//13629:/bin/zsh
 endif
+balt chains.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -121,12 +122,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 459 - ((58 * winheight(0) + 29) / 59)
+let s:l = 293 - ((66 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 459
-normal! 023|
+keepjumps 293
+normal! 025|
 tabnext
 edit sort.lua
 argglobal
@@ -141,7 +142,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 29) / 59)
+let s:l = 1 - ((0 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -160,7 +161,7 @@ setlocal fdn=20
 setlocal fen
 2
 normal! zo
-let s:l = 69 - ((32 * winheight(0) + 29) / 59)
+let s:l = 69 - ((37 * winheight(0) + 34) / 68)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
