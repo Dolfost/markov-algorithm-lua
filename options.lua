@@ -30,9 +30,9 @@ parser:option "-f --file"
 parser:option "-s --string"
 	:target "str"
 	:argname {"STR", "STR"}
-	:description "The input strings for Markov algorithm"
+	:description "The input strings for Markov algorithm. Can be omitted if script is getting the input from pipe: echo 'aa*aaa' | lua markov.lua -f chains.lua -a mult"
 	:args("+")
-	:count(1)
+	:count("0-1")
 	:overwrite(false)
 
 parser:option "-a --algorithm"
@@ -61,7 +61,7 @@ parser:flag "--version"
 
 parser:mutex(
 	parser:flag "-v --verbose"
-		:target "verbosity"
+		:target "verbose"
 		:action "store_true"
 		:description "Verbose mode",
 	parser:flag "-q --quiet"

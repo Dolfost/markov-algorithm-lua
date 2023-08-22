@@ -1,4 +1,4 @@
-ver = "v1.7"
+ver = "v2.0"
 
 local replacements = {}
 function malgorithm(table)
@@ -17,6 +17,18 @@ function malgorithm(table)
 
 end
 
+function readstdin()
+	res = {}
+	local data = io.stdin:read('all')
+
+	for inp in string.gmatch(data, '(.-)\n') do
+		table.insert(res, inp)
+	end
+
+	return res
+end
+
+
 local m = require "./markovlib"
 local args = require "./options"
 
@@ -30,8 +42,12 @@ if replacements[args.algorithm] == nil then
 	os.exit(1)
 end
 
+if args.str == nil then
+	args.str = readstdin()
+end
 
-if args.verbosity == true then
+
+if args.verbose == true then
 	for _, str in ipairs(args.str) do
 	local counter = 0
 
@@ -55,7 +71,7 @@ if args.verbosity == true then
 
 			io.write(string.format(">> %s\n", str))
 			if counter >= args.iterations then
-				io.write(string.format("The iteration limit of %d has been reached.\n", args.iterations))
+				io.stderr:write(string.format("The iteration limit of %d has been reached.\n", args.iterations))
 				break
 			end
 		end
