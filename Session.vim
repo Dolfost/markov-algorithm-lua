@@ -101,12 +101,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 43 - ((42 * winheight(0) + 31) / 62)
+let s:l = 27 - ((26 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 43
-normal! 014|
+keepjumps 27
+normal! 040|
 tabnext
 argglobal
 if bufexists(fnamemodify("term://~/markov-algorithm-lua//13629:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//13629:/bin/zsh | else | edit term://~/markov-algorithm-lua//13629:/bin/zsh | endif
