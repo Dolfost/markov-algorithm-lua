@@ -20,7 +20,7 @@ badd +64 options.lua
 badd +1 sort.lua
 badd +42 README.md
 badd +1 -S
-badd +0 term://~/markov-algorithm-lua//13629:/bin/zsh
+badd +1 term://~/markov-algorithm-lua//13629:/bin/zsh
 argglobal
 %argdel
 tabnew +setlocal\ bufhidden=wipe
@@ -43,11 +43,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 94 - ((67 * winheight(0) + 34) / 68)
+let s:l = 33 - ((32 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 94
+keepjumps 33
 normal! 0
 tabnext
 edit options.lua
@@ -62,12 +62,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 33 - ((27 * winheight(0) + 34) / 68)
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 33
-normal! 0164|
+keepjumps 1
+normal! 0
 tabnext
 edit markovlib.lua
 argglobal
@@ -82,11 +82,11 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 41 - ((40 * winheight(0) + 34) / 68)
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 41
+keepjumps 1
 normal! 013|
 tabnext
 edit chains.lua
@@ -101,12 +101,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 34) / 68)
+let s:l = 43 - ((42 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 1
-normal! 023|
+keepjumps 43
+normal! 014|
 tabnext
 argglobal
 if bufexists(fnamemodify("term://~/markov-algorithm-lua//13629:/bin/zsh", ":p")) | buffer term://~/markov-algorithm-lua//13629:/bin/zsh | else | edit term://~/markov-algorithm-lua//13629:/bin/zsh | endif
@@ -122,12 +122,12 @@ setlocal fdl=0
 setlocal fml=1
 setlocal fdn=20
 setlocal fen
-let s:l = 293 - ((66 * winheight(0) + 34) / 68)
+let s:l = 62 - ((61 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 293
-normal! 025|
+keepjumps 62
+normal! 0
 tabnext
 edit sort.lua
 argglobal
@@ -142,7 +142,7 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 1 - ((0 * winheight(0) + 34) / 68)
+let s:l = 1 - ((0 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
@@ -161,13 +161,13 @@ setlocal fdn=20
 setlocal fen
 2
 normal! zo
-let s:l = 69 - ((37 * winheight(0) + 34) / 68)
+let s:l = 69 - ((34 * winheight(0) + 31) / 62)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
 keepjumps 69
 normal! 0
-tabnext 1
+tabnext 4
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
 endif
