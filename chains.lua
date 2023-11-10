@@ -25,6 +25,7 @@ malgorithm{ -- takes "aaa-aa" and returns "a" (unary difference)
 	{["a-a"] = "-"},
 	{["a-"] = "a", terminating = true},
 	{["-a"] = "-a", terminating = true}
+	{["-"] = "", terminating = true}
 }
 
 malgorithm{ -- takes "aaa+aa" and returns "aaaaa" (unary addition)
