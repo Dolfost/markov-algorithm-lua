@@ -24,7 +24,7 @@ malgorithm{ -- takes "aaa-aa" and returns "a" (unary difference)
 	name = "diff",
 	{["a-a"] = "-"},
 	{["a-"] = "a", terminating = true},
-	{["-a"] = "-a", terminating = true}
+	{["-a"] = "-a", terminating = true},
 	{["-"] = "", terminating = true}
 }
 
