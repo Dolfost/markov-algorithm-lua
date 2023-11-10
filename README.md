@@ -28,6 +28,7 @@ malgorithm{ -- takes "aaa-aa" and returns "a" (unary)
 	{["a-a"] = "-"},
 	{["a-"] = "a", terminating = true},
 	{["-a"] = "-a", terminating = true}
+	{["-"] = "", terminating = true}
 }
 
 malgorithm{ -- converts "0101" to "aaaaa" (binary to unary conversion)
